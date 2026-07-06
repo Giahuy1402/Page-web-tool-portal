@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Gia Huy Portal Assistant - Trợ lý Portal thông minh UTH</title>
+    <meta name="description" content="Phần mềm desktop hỗ trợ sinh viên UTH quản lý học tập, tự động hóa đăng ký môn học, theo dõi GPA, lịch sử hoạt động thông minh và bảo mật.">
+    <meta name="keywords" content="UTH, Đăng ký môn học UTH, Gia Huy Portal Assistant, Tool UTH, Quản lý điểm UTH">
+    <meta name="author" content="Gia Huy">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://giahuyportal.pages.dev/">
+    <meta property="og:title" content="Gia Huy Portal Assistant - Trợ lý Portal thông minh UTH">
+    <meta property="og:description" content="Tự động hóa đăng ký môn học, đồng bộ và theo dõi GPA an toàn ngay trên Desktop.">
+    <meta property="og:image" content="assets/images/hero-laptop-mockup.png">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Gia Huy Portal Assistant">
+    <meta property="twitter:description" content="Trợ lý Portal thông minh dành cho sinh viên UTH.">
+    <meta property="twitter:image" content="assets/images/hero-laptop-mockup.png">
+
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+    <div id="loader">
+        <div class="loader-content">
+            <div class="spinner"></div>
+            <h2 class="loader-logo">Gia Huy Portal</h2>
+        </div>
+    </div>
+
+    <div id="mouse-glow"></div>
+    <div class="background-decorations">
+        <div class="glow-sphere sphere-1"></div>
+        <div class="glow-sphere sphere-2"></div>
+    </div>
+
+    <nav id="navbar">
+        <div class="nav-container">
+<a href="#home" class="nav-logo">
+    <img src="assets/images/sharkpng.png" alt="Gia Huy Portal Logo" class="web-logo">
+    <span>Gia Huy Portal Assistant</span>
+</a>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Trang chủ</a></li>
+                <li><a href="#features" class="nav-link">Tính năng</a></li>
+                <li><a href="#screenshots" class="nav-link">Ảnh giao diện</a></li>
+                <li><a href="#how-it-works" class="nav-link">Hoạt động</a></li>
+                <li><a href="#download" class="nav-link">Download</a></li>
+                <li><a href="#faq" class="nav-link">FAQ</a></li>
+                <li><a href="#contact" class="nav-link">Liên hệ</a></li>
+            </ul>
+            <div class="nav-toggle" id="nav-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <header id="home" class="hero-section">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Gia Huy <span class="gradient-text">Portal Assistant</span></h1>
+                <p class="hero-subtitle">Trợ lý <span id="typing-effect"></span> dành cho sinh viên UTH.</p>
+                <div class="hero-actions">
+                    <a href="#download" class="btn btn-primary ripple-btn"><i class="fa-solid fa-download"></i> Download Now</a>
+                    <a href="#features" class="btn btn-secondary"><i class="fa-solid fa-compass"></i> Xem tính năng</a>
+                </div>
+            </div>
+            <div class="hero-visual reveal-fade">
+                <div class="window-mockup macos-style">
+                    <div class="window-header">
+                        <div class="window-buttons">
+                            <span class="dot close"></span>
+                            <span class="dot minimize"></span>
+                            <span class="dot maximize"></span>
+                        </div>
+                        <div class="window-title">Gia Huy Portal Assistant - Dashboard</div>
+                    </div>
+                    <div class="window-body">
+                        <div class="mock-app-layout">
+                            <div class="mock-sidebar">
+                                <div class="mock-item active"></div>
+                                <div class="mock-item"></div>
+                                <div class="mock-item"></div>
+                            </div>
+                            <div class="mock-main">
+                                <div class="mock-row">
+                                    <div class="mock-card widget-glow"></div>
+                                    <div class="mock-card"></div>
+                                </div>
+                                <div class="mock-chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="features" class="features-section section-padding">
+        <div class="container">
+            <div class="section-header text-center reveal-slide-up">
+                <h2 class="section-title">Tính Năng <span class="gradient-text">Vượt Trội</span></h2>
+                <p class="section-subtitle">Được thiết kế tinh gọn để tối ưu hóa trải nghiệm học tập và tương tác hệ thống của bạn.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card reveal-slide-up">
+                    <div class="feature-icon"><i class="fa-solid fa-chart-pie"></i></div>
+                    <h3>Dashboard</h3>
+                    <p>Tổng quan trực quan về tiến trình học tập, lịch học trực quan và thông báo mới nhất.</p>
+                </div>
+                <div class="feature-card reveal-slide-up">
+                    <div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
+                    <h3>Đăng ký môn tự động</h3>
+                    <p>Hệ thống tự động canh lịch, tối ưu luồng request giúp đăng ký môn học nhanh chóng.</p>
+                </div>
+                <div class="feature-card reveal-slide-up">
+                    <div class="feature-icon"><i class="fa-solid fa-star"></i></div>
+                    <h3>Theo dõi GPA</h3>
+                    <p>Biểu đồ phân tích xu hướng điểm số, dự toán điểm số cần đạt mục tiêu.</p>
+                </div>
+                <div class="feature-card reveal-slide-up">
+                    <div class="feature-icon"><i class="fa-solid fa-list-check"></i></div>
+                    <h3>Theo dõi điểm</h3>
+                    <p>Cập nhật ngay lập tức khi có điểm thành phần hoặc điểm thi học kỳ mới.</p>
+                </div>
+                <div class="feature-card reveal-slide-up">
+                    <div class="feature-icon"><i class="fa-solid fa-rotate"></i></div>
+                    <h3>Đồng bộ Portal</h3>
+                    <p>Một chạm để đồng bộ toàn bộ dữ liệu cá nhân từ hệ thống Portal UTH an toàn.</p>
+                </div>
+                <div class="feature-card reveal-slide-up">
+                    <div class="feature-icon"><i class="fa-solid fa-eye"></i></div>
+                    <h3>Theo dõi Portal</h3>
+                    <p>Giám sát trạng thái hoạt động của server Portal tránh tình trạng sập web.</p>
+                </div>
+                <div class="feature-card reveal-slide-up">
+                    <div class="feature-icon"><i class="fa-solid fa-database"></i></div>
+                    <h3>Backup dữ liệu</h3>
+                    <p>Sao lưu cấu hình và dữ liệu môn học cục bộ an toàn, không lo mất dữ liệu.</p>
+                </div>
+                <div class="feature-card reveal-slide-up">
+                    <div class="feature-icon"><i class="fa-solid fa-circle-check"></i></div>
+                    <h3>Lớp ưu tiên</h3>
+                    <p>Thiết lập danh sách mã lớp ưu tiên xếp hàng đăng ký trước theo nguyện vọng.</p>
+                </div>
+                <div class="feature-card reveal-slide-up">
+                    <div class="feature-icon"><i class="fa-solid fa-shield-cat"></i></div>
+                    <h3>Lớp dự phòng</h3>
+                    <p>Tự động chuyển cấu hình sang các lớp thay thế khi lớp chính thức bị full slot.</p>
+                </div>
+                <div class="feature-card reveal-slide-up">
+                    <div class="feature-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+                    <h3>Lịch sử hoạt động</h3>
+                    <p>Ghi nhật ký chi tiết các thao tác hệ thống giúp kiểm soát và tra cứu dễ dàng.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="screenshots" class="screenshots-section section-padding">
+        <div class="container">
+            <div class="section-header text-center reveal-slide-up">
+                <h2 class="section-title">Giao Diện <span class="gradient-text">Ứng Dụng</span></h2>
+                <p class="section-subtitle">Thiết kế hiện đại chuẩn Microsoft Fluent Design, tương thích hoàn hảo Windows 11.</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item reveal-fade">
+                    <div class="window-mockup macos-style">
+                        <div class="window-header">
+                            <div class="window-buttons"><span class="dot close"></span><span class="dot"></span><span class="dot"></span></div>
+                        </div>
+                        <div class="gallery-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="Giao diện chính" class="lightbox-trigger">
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item reveal-fade">
+                    <div class="window-mockup macos-style">
+                        <div class="window-header">
+                            <div class="window-buttons"><span class="dot close"></span><span class="dot"></span><span class="dot"></span></div>
+                        </div>
+                        <div class="gallery-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=800&q=80" alt="Tính năng tự động đăng ký" class="lightbox-trigger">
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item reveal-fade">
+                    <div class="window-mockup macos-style">
+                        <div class="window-header">
+                            <div class="window-buttons"><span class="dot close"></span><span class="dot"></span><span class="dot"></span></div>
+                        </div>
+                        <div class="gallery-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80" alt="Biểu đồ thống kê GPA" class="lightbox-trigger">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="lightbox-modal" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+        <div id="lightbox-caption"></div>
+    </div>
+
+    <section id="how-it-works" class="timeline-section section-padding">
+        <div class="container">
+            <div class="section-header text-center reveal-slide-up">
+                <h2 class="section-title">Quy Trình <span class="gradient-text">Hoạt Động</span></h2>
+                <p class="section-subtitle">Chỉ với vài thao tác đơn giản để tối ưu hành trình học tập tại UTH.</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item left reveal-slide-up">
+                    <div class="timeline-dot"><i class="fa-solid fa-download"></i></div>
+                    <div class="timeline-content">
+                        <h3>1. Download</h3>
+                        <p>Tải xuống bộ cài đặt chính thức `GiaHuyPortalAssistant_Setup.exe` nhanh chóng từ hệ thống Cloud.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right reveal-slide-up">
+                    <div class="timeline-dot"><i class="fa-solid fa-right-to-bracket"></i></div>
+                    <div class="timeline-content">
+                        <h3>2. Đăng nhập</h3>
+                        <p>Đăng nhập tài khoản bằng cơ chế bảo mật mã hóa đầu cuối (End-to-End Encryption).</p>
+                    </div>
+                </div>
+                <div class="timeline-item left reveal-slide-up">
+                    <div class="timeline-dot"><i class="fa-solid fa-cloud-arrow-down"></i></div>
+                    <div class="timeline-content">
+                        <h3>3. Đồng bộ Portal</h3>
+                        <p>Hệ thống tự động tải và cấu trúc lại toàn bộ chương trình đào tạo cùng dữ liệu điểm hiện tại của bạn.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right reveal-slide-up">
+                    <div class="timeline-dot"><i class="fa-solid fa-circle-check"></i></div>
+                    <div class="timeline-content">
+                        <h3>4. Đăng ký môn</h3>
+                        <p>Thiết lập danh sách môn, bấm Bắt đầu và để trợ lý thông minh hoàn thành phần việc còn lại.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="download" class="download-section section-padding">
+        <div class="container">
+            <div class="download-card glass-panel reveal-slide-up">
+                <div class="download-info">
+                    <span class="badge">Bản phát hành ổn định</span>
+                    <h2>Tải Về Cho Máy Tính</h2>
+                    <p>Trải nghiệm phiên bản trợ lý tốt nhất trên môi trường Windows.</p>
+                    
+                    <div class="meta-grid">
+                        <div class="meta-item"><span>Phiên bản:</span> <strong class="counter-version">1.0.4</strong></div>
+                        <div class="meta-item"><span>Ngày phát hành:</span> <strong>06/07/2026</strong></div>
+                        <div class="meta-item"><span>Dung lượng:</span> <strong>48.5 MB</strong></div>
+                        <div class="meta-item"><span>Hệ điều hành:</span> <strong>Windows 10 / 11 (64-bit)</strong></div>
+                    </div>
+                    
+                    <a href="assets/download/GiaHuyPortalAssistant_Setup.exe" class="btn btn-primary btn-large ripple-btn" download>
+                        <i class="fa-brands fa-windows"></i> DOWNLOAD FOR WINDOWS
+                    </a>
+                </div>
+                <div class="download-icon-visual">
+                    <i class="fa-solid fa-box-archive floating-icon"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="faq-section section-padding">
+        <div class="container">
+            <div class="section-header text-center reveal-slide-up">
+                <h2 class="section-title">Câu Hỏi <span class="gradient-text">Thường Gặp</span></h2>
+            </div>
+
+            <div class="faq-accordion">
+                <div class="accordion-item reveal-slide-up">
+                    <div class="accordion-header">
+                        <h3>Phần mềm có miễn phí không?</h3>
+                        <i class="fa-solid fa-chevron-down icon"></i>
+                    </div>
+                    <div class="accordion-body">
+                        <p>Hoàn toàn miễn phí. Phần mềm được phát triển phi thương mại nhằm hỗ trợ cộng đồng sinh viên UTH tối ưu hóa quy trình học tập.</p>
+                    </div>
+                </div>
+                <div class="accordion-item reveal-slide-up">
+                    <div class="accordion-header">
+                        <h3>Có cần cài đặt thêm Python không?</h3>
+                        <i class="fa-solid fa-chevron-down icon"></i>
+                    </div>
+                    <div class="accordion-body">
+                        <p>Không cần. Ứng dụng đã được đóng gói dưới dạng file thực thi (.exe) độc lập, chứa toàn bộ runtime cần thiết bên trong.</p>
+                    </div>
+                </div>
+                <div class="accordion-item reveal-slide-up">
+                    <div class="accordion-header">
+                        <h3>Có cần Playwright/Selenium không?</h3>
+                        <i class="fa-solid fa-chevron-down icon"></i>
+                    </div>
+                    <div class="accordion-body">
+                        <p>Không. Trợ lý giao tiếp trực tiếp qua hệ thống Core API tối ưu tốc độ, không chạy giả lập trình duyệt cồng kềnh ngốn RAM.</p>
+                    </div>
+                </div>
+                <div class="accordion-item reveal-slide-up">
+                    <div class="accordion-header">
+                        <h3>Có hỗ trợ tốt Windows 11 không?</h3>
+                        <i class="fa-solid fa-chevron-down icon"></i>
+                    </div>
+                    <div class="accordion-body">
+                        <p>Có, giao diện của ứng dụng được thiết kế tối ưu hóa đặc biệt theo ngôn ngữ thiết kế Fluent Design và Mica material của Windows 11.</p>
+                    </div>
+                </div>
+                <div class="accordion-item reveal-slide-up">
+                    <div class="accordion-header">
+                        <h3>Ứng dụng có an toàn và bảo mật không?</h3>
+                        <i class="fa-solid fa-chevron-down icon"></i>
+                    </div>
+                    <div class="accordion-body">
+                        <p>Tuyệt đối an toàn. Mọi dữ liệu đăng nhập và cookie đều được mã hóa cục bộ (AES-256) trên máy cá nhân của bạn, không gửi về bất kỳ server trung gian nào.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section section-padding">
+        <div class="container text-center reveal-slide-up">
+            <h2 class="section-title">Kết Nối Với <span class="gradient-text">Nhà Phát Triển</span></h2>
+            <p class="section-subtitle">Mọi đóng góp, báo lỗi hoặc hợp tác vui lòng liên hệ qua các kênh dưới đây.</p>
+            
+            <div class="contact-links">
+                <a href="mailto:contact@giahuy.dev" class="contact-card glass-panel">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>Email</span>
+                </a>
+                <a href="https://github.com/" target="_blank" class="contact-card glass-panel">
+                    <i class="fa-brands fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://giahuy.dev" target="_blank" class="contact-card glass-panel">
+                    <i class="fa-solid fa-briefcase"></i>
+                    <span>Portfolio</span>
+                </a>
+                <a href="https://facebook.com/" target="_blank" class="contact-card glass-panel">
+                    <i class="fa-brands fa-facebook"></i>
+                    <span>Facebook</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-container">
+<div class="footer-brand">
+    <img src="assets/images/sharkpng.png" alt="Gia Huy Portal Logo" class="web-logo-footer">
+    <span>Gia Huy Portal Assistant</span>
+</div>
+            <div class="footer-meta">
+                <span>Phiên bản v1.0.4 stable</span>
+                <span>&copy; 2026 Gia Huy. All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/animation.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
