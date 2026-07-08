@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
     dismissLoader();
     initNavbarScrolling();
     initMobileNav();
-    initButtonRipples();
     initLightbox();
     initAccordion();
     initScrollSpy();
@@ -25,16 +24,16 @@ function dismissLoader() {
         loader.style.opacity = "0";
         setTimeout(() => {
             loader.style.display = "none";
-        }, 600);
+        }, 500);
     });
     
     // Safety Fallback if window load hooks freeze
     setTimeout(() => {
         if(loader.style.display !== "none") {
             loader.style.opacity = "0";
-            setTimeout(() => loader.style.display = "none", 600);
+            setTimeout(() => loader.style.display = "none", 500);
         }
-    }, 2500);
+    }, 2000);
 }
 
 /**
@@ -44,13 +43,16 @@ function initNavbarScrolling() {
     const navbar = document.getElementById("navbar");
     if (!navbar) return;
 
-    window.addEventListener("scroll", () => {
-        if (window.scrollY > 50) {
+    const handleScroll = () => {
+        if (window.scrollY > 40) {
             navbar.classList.add("scrolled");
         } else {
             navbar.classList.remove("scrolled");
         }
-    });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Trigger immediately in case page is loaded scrolled down
 }
 
 /**
@@ -58,85 +60,84 @@ function initNavbarScrolling() {
  */
 function initMobileNav() {
     const toggle = document.getElementById("nav-toggle");
-    const menu = document.querySelector(".nav-menu");
+    const menu = document.getElementById("nav-menu-list");
     const links = document.querySelectorAll(".nav-link");
 
     if (!toggle || !menu) return;
 
     toggle.addEventListener("click", () => {
-        menu.classList.toggle("open");
-        toggle.querySelector("i").classList.toggle("fa-bars");
-        toggle.querySelector("i").classList.toggle("fa-xmark");
+        const isOpen = menu.classList.toggle("open");
+        toggle.setAttribute("aria-expanded", isOpen);
+        
+        const icon = toggle.querySelector("i");
+        if (icon) {
+            icon.classList.toggle("fa-bars");
+            icon.classList.toggle("fa-xmark");
+        }
     });
 
     // Auto close menu context once user taps link on Mobile view
     links.forEach(link => {
         link.addEventListener("click", () => {
             menu.classList.remove("open");
-            toggle.querySelector("i").classList.add("fa-bars");
-            toggle.querySelector("i").classList.remove("fa-xmark");
+            toggle.setAttribute("aria-expanded", "false");
+            const icon = toggle.querySelector("i");
+            if (icon) {
+                icon.classList.add("fa-bars");
+                icon.classList.remove("fa-xmark");
+            }
         });
     });
 }
 
 /**
- * 4. Micro-Interaction: Advanced Button Wave Ripple Rendering Engine
- */
-function initButtonRipples() {
-    const buttons = document.querySelectorAll(".ripple-btn");
-
-    buttons.forEach(btn => {
-        btn.addEventListener("click", function(e) {
-            const rect = this.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-
-            const ripple = document.createElement("span");
-            ripple.classList.add("ripple");
-            ripple.style.left = `${x}px`;
-            ripple.style.top = `${y}px`;
-
-            this.appendChild(ripple);
-
-            setTimeout(() => ripple.remove(), 600);
-        });
-    });
-}
-
-/**
- * 5. Lightbox Modal Gallery Overlay Configuration
+ * 4. Lightbox Modal Gallery Overlay Configuration
  */
 function initLightbox() {
     const modal = document.getElementById("lightbox-modal");
     const modalImg = document.getElementById("lightbox-img");
     const captionText = document.getElementById("lightbox-caption");
     const triggers = document.querySelectorAll(".lightbox-trigger");
-    const closeBtn = document.querySelector(".lightbox-close");
+    const closeBtn = document.getElementById("lightbox-close-btn");
 
     if (!modal || !modalImg) return;
 
     triggers.forEach(img => {
         img.addEventListener("click", function() {
             modal.style.display = "flex";
+            modal.setAttribute("aria-hidden", "false");
             modalImg.src = this.src;
-            captionText.innerHTML = this.alt;
-            document.body.style.overflow = "hidden"; // Prevent background scroll freeze
+            captionText.textContent = this.alt || "";
+            document.body.style.overflow = "hidden"; // Prevent background scroll
         });
     });
 
     const dismiss = () => {
         modal.style.display = "none";
-        document.body.style.overflow = "auto";
+        modal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
     };
 
-    closeBtn.addEventListener("click", dismiss);
+    if (closeBtn) {
+        closeBtn.addEventListener("click", dismiss);
+    }
+    
     modal.addEventListener("click", (e) => {
-        if(e.target === modal) dismiss();
+        if (e.target === modal || e.target.classList.contains("lightbox-wrapper")) {
+            dismiss();
+        }
+    });
+
+    // ESC key closes lightbox
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal.style.display === "flex") {
+            dismiss();
+        }
     });
 }
 
 /**
- * 6. Native FAQ Max-Height Based Slide CSS Accordion Component
+ * 5. FAQ Accordion component with smooth max-height transitions
  */
 function initAccordion() {
     const headers = document.querySelectorAll(".accordion-header");
@@ -145,70 +146,78 @@ function initAccordion() {
         header.addEventListener("click", function() {
             const item = this.parentElement;
             const body = item.querySelector(".accordion-body");
-            const isActive = item.classList.contains("active");
+            const isCurrentlyActive = item.classList.contains("active");
 
-            // Close all items first for strict clean Accordion exclusive behavior
+            // Close all items first for strict accordion behavior
             document.querySelectorAll(".accordion-item").forEach(el => {
                 el.classList.remove("active");
-                el.querySelector(".accordion-body").style.maxHeight = null;
-                el.querySelector(".accordion-body").style.paddingBottom = null;
+                el.querySelector(".accordion-header").setAttribute("aria-expanded", "false");
+                const b = el.querySelector(".accordion-body");
+                b.style.maxHeight = null;
             });
 
-            if (!isActive) {
+            if (!isCurrentlyActive) {
                 item.classList.add("active");
-                body.style.maxHeight = body.scrollHeight + 24 + "px"; // Dynamically pass exact child internal pixel scale
-                body.style.paddingBottom = "24px";
+                this.setAttribute("aria-expanded", "true");
+                body.style.maxHeight = body.scrollHeight + "px";
             }
         });
     });
 }
 
 /**
- * 7. Active ScrollSpy Track - Highlights current layout tier active node on Navbar links
+ * 6. Active ScrollSpy Track - Highlights current layout tier active node on Navbar links
  */
 function initScrollSpy() {
     const sections = document.querySelectorAll("section, header");
     const navLinks = document.querySelectorAll(".nav-link");
 
+    if (sections.length === 0 || navLinks.length === 0) return;
+
     window.addEventListener("scroll", () => {
         let currentSectionId = "";
-        
+        const scrollPosition = window.scrollY + 120; // threshold offset
+
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.clientHeight;
-            // Highlight shift exact trigger point adjustment threshold
-            if (window.scrollY >= (sectionTop - 200)) {
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
                 currentSectionId = section.getAttribute("id");
             }
         });
 
-        navLinks.forEach(link => {
-            link.classList.remove("active");
-            if (link.getAttribute("href") === `#${currentSectionId}`) {
-                link.classList.add("active");
-            }
-        });
+        if (currentSectionId) {
+            navLinks.forEach(link => {
+                link.classList.remove("active");
+                if (link.getAttribute("href") === `#${currentSectionId}`) {
+                    link.classList.add("active");
+                }
+            });
+        }
     });
 }
 
 /**
- * 8. Dynamic Software Build Target Version Count-Up Micro Animation
+ * 7. Dynamic Software Build Target Version Count-Up Micro Animation
  */
 function triggerCounterAnimation() {
-    const versionNode = document.querySelector(".counter-version");
-    if (!versionNode) return;
+    const versionNodes = document.querySelectorAll(".counter-version");
+    if (versionNodes.length === 0) return;
     
-    // Simulates an elegant counting up visual to standard version format string 
     let currentVal = 0.0;
     const targetVal = 1.0; 
     
     const interval = setInterval(() => {
         currentVal += 0.1;
         if (currentVal >= targetVal) {
-            versionNode.textContent = "1.0.4"; // Return target structural version tag on halt
+            versionNodes.forEach(node => {
+                node.textContent = "1.0.4"; // Set final target version tag
+            });
             clearInterval(interval);
         } else {
-            versionNode.textContent = currentVal.toFixed(1) + ".0";
+            versionNodes.forEach(node => {
+                node.textContent = currentVal.toFixed(1) + ".0";
+            });
         }
-    }, 80);
+    }, 60);
 }
