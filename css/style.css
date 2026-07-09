@@ -993,13 +993,6 @@ p {
     transition: var(--transition-smooth);
 }
 
-.developer-card:hover {
-    background-color: #FFFFFF;
-    border-color: rgba(37, 99, 235, 0.25);
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-premium);
-}
-
 .developer-avatar-wrapper {
     margin-bottom: 20px;
     position: relative;
@@ -1027,11 +1020,6 @@ p {
     background: linear-gradient(135deg, #7C3AED 0%, #EC4899 100%);
 }
 
-.developer-card:hover .developer-avatar {
-    transform: scale(1.05) rotate(5deg);
-    box-shadow: var(--shadow-lg);
-}
-
 .developer-name {
     font-size: 1.35rem;
     font-weight: 700;
@@ -1052,8 +1040,56 @@ p {
     font-size: 0.95rem;
     color: var(--text);
     line-height: 1.6;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     flex-grow: 1;
+}
+
+.developer-email-box {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--accent-blue-light);
+    border: 1px solid rgba(37, 99, 235, 0.1);
+    padding: 8px 14px;
+    border-radius: 9999px;
+    margin-bottom: 24px;
+    font-size: 0.85rem;
+    transition: var(--transition-smooth);
+}
+
+.developer-email-box:hover {
+    border-color: rgba(37, 99, 235, 0.25);
+    background-color: #FFFFFF;
+    box-shadow: var(--shadow-sm);
+}
+
+.email-text {
+    font-weight: 500;
+    color: var(--text);
+    user-select: all;
+}
+
+.copy-email-btn {
+    background: none;
+    border: none;
+    color: var(--primary);
+    cursor: pointer;
+    padding: 2px 6px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-smooth);
+    border-radius: 4px;
+}
+
+.copy-email-btn:hover {
+    color: var(--primary-hover);
+    transform: scale(1.1);
+}
+
+.copy-email-btn.copied {
+    color: #10B981;
 }
 
 .developer-contacts {
